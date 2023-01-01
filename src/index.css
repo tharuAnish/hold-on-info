@@ -1,13 +1,88 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap");
+:root {
+  --color-primary-1: #282c34;
+  --color-primary-2: rgb(218, 178, 255);
+}
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  font-size: 1.4em;
+  background: #dfdfdf;
+  color: rgb(31, 31, 31);
+}
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  height: 100%;
+}
+.wrapper {
+  width: 95%;
+  margin-inline: auto;
+  max-width: 1400px;
+}
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+input::placeholder {
+  overflow: visible;
+}
+
+/*Ninja css*/
+
+/* base styles */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+input,
+textarea {
+  color: #333;
+  padding: 8px;
+  font-size: 1em;
+  border-radius: 4px;
+  border: 1px solid #d4d4d4;
+  background-color: #fff;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+.page-title {
+  text-align: center;
+  margin: 40px auto;
+  color: #333;
+}
+.loading,
+.error {
+  text-align: center;
+  margin: 40px auto;
 }
