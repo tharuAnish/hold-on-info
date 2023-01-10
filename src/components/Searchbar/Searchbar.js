@@ -7,8 +7,9 @@ export default function Searchbar() {
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
-    e.preventDefault() // this weill prevent page from refreshing when form submitted
-    navigate(`/search?=${term}`)
+    e.preventDefault()
+
+    navigate(`/search?q=${term}`)
   }
 
   return (
@@ -16,8 +17,8 @@ export default function Searchbar() {
       <form onSubmit={handleSubmit}>
         <label htmlFor="search">Search:</label>
         <input
-          type="text"
           id="search"
+          type="text"
           onChange={(e) => setTerm(e.target.value)}
           required
         />
