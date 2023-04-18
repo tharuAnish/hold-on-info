@@ -9,3 +9,9 @@
 .App-link {
   color: #61dafb;
 }
+
+/* darkmode */
+
+.App.dark {
+  background: #333;
+}
