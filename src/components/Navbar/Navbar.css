@@ -29,3 +29,13 @@
   background: #fff;
   color: #333;
 }
+
+.fd {
+  --color-primary: hsl(226, 62%, 55%);
+  --color-secondary: hsl(226, 62%, 95%);
+  --color-accent: hsl(226, 62%, 15%);
+
+  --color-primary: hsl(226, 62%, 55%);
+  --color-primary: hsl(226, 92%, 55%);
+  --color-primary: hsl(226, 32%, 55%);
+}
