@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { useFetch } from "../../hooks/useFetch"
 import "./Create.css"
+import { projectFirestore } from "../../firebase/config"
 
 export default function Create() {
   const [title, setTitle] = useState("")
@@ -12,19 +12,23 @@ export default function Create() {
   const ingredientInput = useRef(null)
   const navigate = useNavigate()
 
-  const { postData, data, error } = useFetch(
-    "http://localhost:3000/recipes",
-    "POST"
-  )
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    postData({
+    const doc = {
+      //we want to store this doc object as a firebase document
       title,
       ingredients,
       method,
       cookingTime: cookingTime + " minutes",
-    })
+    } //to add the doc in firestore
+    try {
+      await projectFirestore.collection("recipes").add(doc)
+      //will generate new document inside collection and automatically add all data there
+      navigate("/")
+      //to send to home after push
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   const handleAdd = (e) => {
@@ -37,12 +41,6 @@ export default function Create() {
     setNewIngredient("")
     ingredientInput.current.focus()
   }
-
-  useEffect(() => {
-    if (data) {
-      navigate("/")
-    }
-  }, [data])
 
   return (
     <div className="create">
