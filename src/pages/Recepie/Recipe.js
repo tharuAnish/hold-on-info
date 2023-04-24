@@ -32,6 +32,14 @@ export default function Recipe() {
     //we are not using get only doc here like collection here because we are fetching only one document
   }, [id])
 
+  // function to update
+
+  const handleClick = () => {
+    projectFirestore.collection("recipes").doc(id).update({
+      title: "something different",
+    })
+  }
+
   return (
     <div className={`recipe ${mode}`}>
       {error && <p className="error">{error}</p>}
@@ -46,6 +54,8 @@ export default function Recipe() {
             ))}
           </ul>
           <p className="method">{recipe.method}</p>
+          {/* button to update */}
+          <button onClick={handleClick}>UpdateMe</button>
         </>
       )}
     </div>
